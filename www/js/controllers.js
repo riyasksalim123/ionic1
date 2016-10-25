@@ -2,6 +2,64 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $ionicPopup,$mdDialog,$mdToast) {
 
+  var app = new Clarifai.App(
+    'gFf3cYi3k3RGSv1ZLYyapkpBk6yE1dkUAJojVgO1',
+    'ljzfIY_Qe8qtQ4TnEN0mlxjwm3p8I_AKCyOo9lGf'
+  );
+
+ // alert(JSON.stringify(app));
+
+
+  //app.models.predict(Clarifai.GENERAL_MODEL, "http://blog.pakistani.pk/file/2016/02/10-Famous-Cartoon-Characters-of-All-Time-Mickey-Mouse.png").then(
+  //  function(response) {
+  //
+  //    alert(JSON.stringify(response));
+  //    // do something with response
+  //  },
+  //  function(err) {
+  //    alert(JSON.stringify(err));
+  //    // there was an error
+  //  }
+  //);
+
+
+
+
+
+  //https://developer-preview.clarifai.com/guide/
+  //https://words.bighugelabs.com/getkey.php
+
+  //https://words.bighugelabs.com/admin/2e861e57d24051262a1cf864d6ca24d6
+  //Your API key is 2e861e57d24051262a1cf864d6ca24d6
+  //eg : http://words.bighugelabs.com/api/2/2e861e57d24051262a1cf864d6ca24d6/forest/json
+
+  //https://jsfiddle.net/onigetoc/kxz6L4m3/
+  //https://newsapi.org/#documentation
+
+  //flickr
+  //http://jsfiddle.net/giulianobertoti/75hya/
+
+
+  app.models.predict(Clarifai.TRAVEL_MODEL, "https://samples.clarifai.com/travel.jpg").then(
+    function(response) {
+      alert(response.data);
+      // do something with response
+    },
+    function(err) {
+      alert(JSON.stringify(err));
+      // there was an error
+    }
+  );
+
+//  // Require the client
+//  var Clarifai = require('clarifai');
+//
+//// instantiate a new Clarifai app passing in your clientId and clientSecret
+//  var app = new Clarifai.App(
+//    'gFf3cYi3k3RGSv1ZLYyapkpBk6yE1dkUAJojVgO1',
+//    'ljzfIY_Qe8qtQ4TnEN0mlxjwm3p8I_AKCyOo9lGf'
+//  );
+//  alert(app);
 
   var last = {
     bottom: false,
